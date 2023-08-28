@@ -1,0 +1,88 @@
+<div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <input type="file" class="image-input" multiple
+                        accept="image/*">
+                    <div class="image-container">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-12">
+                    <input type="file" class="image-input" multiple
+                        accept="image/*">
+                    <div class="image-container">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-12">
+                    <input type="file" class="image-input" multiple
+                        accept="image/*">
+                    <div class="image-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+const imageInputs = document.querySelectorAll('.image-input');
+const imageContainers = document.querySelectorAll('.image-container');
+
+imageInputs.forEach((input, index) => {
+    input.addEventListener('change', (event) => {
+        const selectedImages = event.target.files;
+        
+        // Clear previous content
+        imageContainers[index].innerHTML = '';
+
+        for (let i = 0; i < selectedImages.length; i++) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imageMiniContainer = document.createElement('div');
+                imageMiniContainer.className = 'span_image';
+                
+                const imageElement = document.createElement('img');
+                imageElement.src = e.target.result;
+                imageElement.className = 'uploaded-image';
+                imageMiniContainer.appendChild(imageElement);
+
+                const deleteButton = document.createElement('span');
+                deleteButton.className = 'delete-button';
+                deleteButton.textContent = 'X';
+                deleteButton.addEventListener('click', () => {
+                    imageMiniContainer.remove();
+                });
+                imageMiniContainer.appendChild(deleteButton);
+
+                imageContainers[index].appendChild(imageMiniContainer);
+            };
+            reader.readAsDataURL(selectedImages[i]);
+        }
+    });
+});
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    /* position: relative; */
+    display: flex;
+    gap: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.span_image {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}

@@ -1,0 +1,1 @@
+[04-Aug-2023 20:54:47 Africa/Addis_Ababa] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/betarwreality/public_html/storage/framework/views/cb0cca00d0c148c0bc527f9efe6cb208491ef38b.php on line 152

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Bauhaus 93';
+    src: url('Bauhaus93.eot');
+    src: url('Bauhaus93.eot?#iefix') format('embedded-opentype'),
+        url('Bauhaus93.woff2') format('woff2'),
+        url('Bauhaus93.woff') format('woff'),
+        url('Bauhaus93.ttf') format('truetype'),
+        url('Bauhaus93.svg#Bauhaus93') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'Bauhaus 93';
+    src: url('Bauhaus93_1.eot');
+    src: url('Bauhaus93_1.eot?#iefix') format('embedded-opentype'),
+        url('Bauhaus93_1.woff2') format('woff2'),
+        url('Bauhaus93_1.woff') format('woff'),
+        url('Bauhaus93_1.ttf') format('truetype'),
+        url('Bauhaus93_1.svg#Bauhaus93') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
+
