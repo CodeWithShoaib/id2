@@ -68,6 +68,7 @@ class CustomerController extends Controller
      */
     public function sign_up(Request $request)
     {
+        dd($request->all());
         if (Auth::check()) {
             return redirect('/');
         }

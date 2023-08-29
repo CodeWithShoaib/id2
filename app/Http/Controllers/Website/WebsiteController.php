@@ -613,9 +613,9 @@ class WebsiteController extends Controller
     }
         $id=$request->id;
         $details = ['id' => $id];
-        Mail::send('theme.myweb.share', $details, function($message) use ($request) {
-        $message->to($request->email)->subject('Your Subject Here');
-        });
+        // Mail::send('theme.myweb.share', $details, function($message) use ($request) {
+        // $message->to($request->email)->subject('Your Subject Here');
+        // });
         return redirect()->back()->with("success",'You Share this report successfully!');
         
     }

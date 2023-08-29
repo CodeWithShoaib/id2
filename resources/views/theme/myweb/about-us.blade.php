@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-6 col-12">
                       <div class="content">
-                        <img data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" class="about-img aos-init aos-animate" src="https://betarwreality.com/public/theme/myweb/images/about-us-img.png" alt="">
+                        <img data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" class="about-img aos-init aos-animate" src="{{asset('public/theme/myweb/images/about-us-img.png')}}" alt="image">
                         <!--bottom_banner_heading-->
                         <h3 data-aos="slide-right" data-aos-delay="50" data-aos-duration="1000" class="aos-init aos-animate"><strong>The Official Dental <br> Implant Registry™</strong></h3>
                         <div class="count-down aos-init aos-animate" data-aos="fade-up" data-aos-duration="1400" data-aos-delay="200">
@@ -64,7 +64,7 @@
                     <div class="col-lg-4 col-md-6 col-12">
                       <div class="content_2">
                         <h3 class="second-heading">Patient Centric 
-                          <img class="img-fluid" src="https://betarwreality.com/public/theme/myweb/images//tooth.png" alt="image">
+                          <img class="img-fluid" src="{{asset('public/theme/myweb/images//tooth.png')}}" alt="image">
                         Implant Agnostic</h3>
                         <!--bottom_banner_left_content-->
                        

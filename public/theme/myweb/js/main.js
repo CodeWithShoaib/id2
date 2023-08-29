@@ -228,16 +228,15 @@ $("#state").on("change", function () {
 });
 
 $(document).ready(function () {
-  $(".business_name").hide();
   $(".patient").change(function () {
-    $(".patient").removeAttribute("required");
-
-
+    $(".business_name_id").removeAttr("required");
   });
+
   $(".dental").change(function () {
-     $(".patient").setAttribute("required", "true");
+    $(".business_name_id").attr("required", "true");
   });
 });
+
 
 $(document).ready(function () {
   $(".package_data").click(function () {
@@ -544,12 +543,12 @@ function decrementTeethId(buttonElement, teethId) {
   buttonElement.parentNode.parentNode.remove();
   teethId--;
 }
+
 var teethId = 1;
 const teethBtns = document.querySelectorAll(".teeth");
 teethBtns.forEach((element) => {
   element.addEventListener("click", () => {
     const subForm = document.querySelector(".subForm .row");
-    console.log("ok");
     const str = element.id;
     const match = str.match(/\d+/);
     const result = match ? match[0] : null;
@@ -633,12 +632,11 @@ teethBtns.forEach((element) => {
             <input type="text" placeholder="Enter here" name='abutment_type[]'>
         </div>
     
-
             <div class="col-12 col-lg-12">
             <label for="text">Attach X-rays:Max 2</label>
               <input type="file" class="image-input-main" name="images${teethId}[]"  multiple accept="image/*">
               <input type="hidden" value='${result}'  name='tooth_ids[]'>
-              <div class="image-container-main"></div>
+              <div class="image-container-main" id='image-container-main${result}'></div>
             </div>
     </div>
        
@@ -648,27 +646,23 @@ teethBtns.forEach((element) => {
     
     
 
-
     
     const imageInputs = document.querySelectorAll(".image-input-main");
-      const imageContainers = document.querySelectorAll(".image-container-main");
-
-      imageInputs.forEach((input, index) => {
+      imageInputs.forEach((input, index) =>   {
         input.addEventListener("change", (event) => {
           const selectedImages = event.target.files;
-            console.log("show image work")
+          var imageContainers = document.querySelector(`#image-container-main${result}`);
           // Clear previous content
-          imageContainers[index].innerHTML = "";
-
+          imageContainers.innerHTML = "";
           for (let i = 0; i < selectedImages.length; i++) {
             const reader = new FileReader();
             reader.onload = (e) => {
               const imageMiniContainer = document.createElement("div");
-              imageMiniContainer.className = "span_image";
+              imageMiniContainer.className = `span_image${result}`;
 
               const imageElement = document.createElement("img");
               imageElement.src = e.target.result;
-              imageElement.className = "uploaded-image";
+              imageElement.className = `uploaded-image${result}`;
               imageMiniContainer.appendChild(imageElement);
 
               const deleteButton = document.createElement("span");
@@ -679,7 +673,7 @@ teethBtns.forEach((element) => {
               });
               imageMiniContainer.appendChild(deleteButton);
 
-              imageContainers[index].appendChild(imageMiniContainer);
+              imageContainers.appendChild(imageMiniContainer);
             };
             reader.readAsDataURL(selectedImages[i]);
           }

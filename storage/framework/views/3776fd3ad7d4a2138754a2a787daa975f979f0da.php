@@ -1,5 +1,5 @@
-@extends('theme.myweb.website')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <style>
         .invalid-feedback {
             display: none;
@@ -36,7 +36,7 @@
                             <h2>Sign-Up</h2>
                             <div class="sign-para">
                                         <p>Already Have an Account </p> 
-                                        <a href="{{url('user/login')}}">Sign-in Now</a>
+                                        <a href="<?php echo e(url('user/login')); ?>">Sign-in Now</a>
                                     </div>
                         </div>
                     </div>
@@ -47,8 +47,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ url('sign_up') }}" method='post'>
-                            @csrf
+                        <form action="<?php echo e(url('sign_up')); ?>" method='post'>
+                            <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-check-parent">
@@ -75,15 +75,16 @@
                                     </div>
 
                                 </div>
-                                @if ($errors->has('user_status'))
+                                <?php if($errors->has('user_status')): ?>
                                     <div class="invalid-feedback">
-                                        {{ $errors->first('user_status') }}
+                                        <?php echo e($errors->first('user_status')); ?>
+
                                     </div>
-                                @endif
+                                <?php endif; ?>
                                 <div class="col-12 col-lg-12">
                                     <div class="singup_now">
                                         <p>Already Have an Account</p>
-                                        <a href="{{url('user/login')}}">Sign-in Now</a>
+                                        <a href="<?php echo e(url('user/login')); ?>">Sign-in Now</a>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -95,43 +96,47 @@
                           
                                 <div class="col-12 col-lg-6 col-md-12">
                                     <label for="">First Name</label>
-                                    <input type="text" name="first_name" required value="{{ old('first_name') }}"
-                                        class='{{ $errors->has('first_name') ? 'is-invalid' : '' }}'>
-                                    @if ($errors->has('first_name'))
+                                    <input type="text" name="first_name" required value="<?php echo e(old('first_name')); ?>"
+                                        class='<?php echo e($errors->has('first_name') ? 'is-invalid' : ''); ?>'>
+                                    <?php if($errors->has('first_name')): ?>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('first_name') }}
+                                            <?php echo e($errors->first('first_name')); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-12">
                                     <label for="">Last Name</label>
-                                    <input type="text" name="last_name" required value="{{ old('last_name') }}"
-                                        class='{{ $errors->has('last_name') ? 'is-invalid' : '' }}'>
-                                    @if ($errors->has('last_name'))
+                                    <input type="text" name="last_name" required value="<?php echo e(old('last_name')); ?>"
+                                        class='<?php echo e($errors->has('last_name') ? 'is-invalid' : ''); ?>'>
+                                    <?php if($errors->has('last_name')): ?>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('last_name') }}
+                                            <?php echo e($errors->first('last_name')); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-12">
                                     <label for="">Email Address</label>
-                                    <input type="email" name="email" required value="{{ old('email') }}"
-                                        class='{{ $errors->has('email') ? 'is-invalid' : '' }}'>
-                                    @if ($errors->has('email'))
+                                    <input type="email" name="email" required value="<?php echo e(old('email')); ?>"
+                                        class='<?php echo e($errors->has('email') ? 'is-invalid' : ''); ?>'>
+                                    <?php if($errors->has('email')): ?>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('email') }}
+                                            <?php echo e($errors->first('email')); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-12">
                                     <label for="">Contact Number</label>
-                                    <input type="text" name="phone" class='doctor_phone_number' required value="{{ old('phone') }}"
+                                    <input type="text" name="phone" class='doctor_phone_number' required value="<?php echo e(old('phone')); ?>"
                                         class='number'>
-                                    @if ($errors->has('phone'))
+                                    <?php if($errors->has('phone')): ?>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('phone') }}
+                                            <?php echo e($errors->first('phone')); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                     
                                 </div>
                                     <div class="col-12 col-lg-6 col-md-12 business_name" style='display:block !important;'>
@@ -145,23 +150,25 @@
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-12">
                                     <label for="">Password</label>
-                                    <input type="password" name="password" required value="{{ old('password') }}"
-                                        class='{{ $errors->has('password') ? 'is-invalid' : '' }}'>
-                                    @if ($errors->has('password'))
+                                    <input type="password" name="password" required value="<?php echo e(old('password')); ?>"
+                                        class='<?php echo e($errors->has('password') ? 'is-invalid' : ''); ?>'>
+                                    <?php if($errors->has('password')): ?>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('password') }}
+                                            <?php echo e($errors->first('password')); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-12">
                                     <label for="">Confirm Password</label>
-                                    <input type="password" name="password_confirmation" required value="{{ old('password_confirmation') }}"
-                                        class='{{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}'>
-                                    @if ($errors->has('password_confirmation'))
+                                    <input type="password" name="password_confirmation" required value="<?php echo e(old('password_confirmation')); ?>"
+                                        class='<?php echo e($errors->has('password_confirmation') ? 'is-invalid' : ''); ?>'>
+                                    <?php if($errors->has('password_confirmation')): ?>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('password_confirmation') }}
+                                            <?php echo e($errors->first('password_confirmation')); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                             
                              
@@ -199,7 +206,9 @@
         </section>
 
     </main>
-@endsection
-@section('js-script')
-    <script src="{{ asset('public/theme/default/js/cart.js?v=1.1') }}"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js-script'); ?>
+    <script src="<?php echo e(asset('public/theme/default/js/cart.js?v=1.1')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('theme.myweb.website', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp 7.4\htdocs\id2\resources\views/theme/myweb/signup.blade.php ENDPATH**/ ?>

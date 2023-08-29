@@ -29,7 +29,7 @@
         </ul>
         <p>To get started and access your profile, please click <a href="" style="color: #007bff; text-decoration: none; font-weight: bold;">here</a> to set up your personal password.</p>
         <p><strong>Welcome to id2.</strong></p>
-        <p>Website: <a href="https://betarwreality.com/" style="color: #007bff; text-decoration: none; font-weight: bold;">www.id2dental.com</a></p>
+        <p>Website: <a href="{{url('/')}}" style="color: #007bff; text-decoration: none; font-weight: bold;">www.id2dental.com</a></p>
         <p>Phone: 877-313-2345</p>
         <p>Email: <a href="mailto:info@id2dental.com" style="color: #007bff; text-decoration: none; font-weight: bold;">info@id2dental.com</a></p>
     </div>
